@@ -10,11 +10,11 @@ public class HeapSort {
 	/**
 	 * 将当前节点和它的子节点调整为大顶堆
 	 * 从index节点开始调整，再依次调整它的子节点
-	 * @param array
+	 * @param array 需要调整的数组
 	 * @param heapSize
-	 * @param index
+	 * @param index 需要调整的起始位置
 	 */
-	private static void maxHeap(int[] array, int heapSize, int index) {
+	public static void maxHeap(int[] array, int heapSize, int index) {
 		int left = 2 * index + 1;// index的左孩子
 		int right = 2 * index + 2;// 右孩子
 
@@ -34,12 +34,12 @@ public class HeapSort {
  * 从第一个非叶子节点开始，调整为大顶堆
  * @param array
  */
-private static void buildMaxHeap(int[] array){
+public static void buildMaxHeap(int[] array){
 	if (array == null || array.length <= 1) {
 		return;
 	}
 	int half = array.length  / 2 ;
-	for(int i=half;i>=0;i--){//从第一个非叶子节点开始调整，再依次调整各个非叶子节点
+	for(int i=half;i>=0;i--){//从第一个非叶子节点开始向上调整，再依次调整各个非叶子节点（自下向上，自左向右调整）
 		maxHeap(array, array.length, i);
 	}
 }

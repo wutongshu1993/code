@@ -12,6 +12,7 @@ public static void printArray(int[] array){
 }
 /**
  * 交换数组中指定位置的数据
+ * 
  */
 public static void swap(int[] arg, int i,int k){
 	int temp;
