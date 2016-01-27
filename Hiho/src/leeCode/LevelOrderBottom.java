@@ -1,11 +1,12 @@
 package leeCode;
 
-import java.security.PublicKey;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Stack;
+
 
 import leeCode.IsSameTree.TreeNode;
 
@@ -52,35 +53,53 @@ public List<List<Integer>> levelOrderBottom(TreeNode root) {
 		list.add(list4);
 		list2.clear();
 	}
-	for(int i=list.size()-1;i>=0;i--){
-		list3.add(list.get(i));
-	}
-	return list3;
+	Collections.reverse(list);
+//	for(int i=list.size()-1;i>=0;i--){
+//		list3.add(list.get(i));
+//	}
+	return list;
 		
 }
 public static void main(String[] args){
 	TreeNode p = new TreeNode(1);
-//	TreeNode q = new TreeNode(1);
 	TreeNode p1 = new TreeNode(2);
 	TreeNode p2 = new TreeNode(3);
-//	TreeNode p3 = new TreeNode(4);
-//	TreeNode p4 = new TreeNode(5);
-//	TreeNode p5 = new TreeNode(6);
-//	TreeNode q1 = new TreeNode(2);
-//	TreeNode q2 = new TreeNode(3);
-//	TreeNode q3 = new TreeNode(4);
-//	TreeNode q4 = new TreeNode(5);
-//	TreeNode q5 = new TreeNode(6);
 	p.left = p1;
 	p.right = p2;
-//	p1.left = p3;
-//	p1.right = p4;
-//	p3.left = p5;
-//	q.left = q1;
-//	q.right = q2;
-//	q1.left = q3;
-//	q1.right = q4;
-//	q3.right = q5;
+
 	List<List<Integer>> list = new LevelOrderBottom().levelOrderBottom(p);
 }
 }
+/**
+ * 采用宽搜的思想 2ms
+ List<TreeNode> toUse = new ArrayList<>();
+ List<List<Integer>> retValue = new ArrayList<>();
+    if( root != null)
+    {
+        toUse.add(root);
+    }
+
+    while (toUse.size() != 0)
+    {
+        List<Integer> result  = new ArrayList<>();
+        List<TreeNode> next = new ArrayList<>();
+        for (TreeNode node : toUse)
+        {
+            result.add(node.val);
+
+            if (node.left != null)
+            {
+                next.add(node.left);
+            }
+
+            if (node.right != null)
+            {
+                next.add(node.right);
+            }
+        }
+        retValue.add(result);
+        toUse = next;            
+    }
+    Collections.reverse(retValue);
+    return retValue;
+    **/
