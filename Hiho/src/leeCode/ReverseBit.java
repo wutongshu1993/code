@@ -1,4 +1,7 @@
 package leeCode;
+
+import java.io.UnsupportedEncodingException;
+
 /**
  * 
  * @author Administrator
@@ -42,6 +45,22 @@ public int byte32ToInt(byte[] arr){
 	}
 	return sum;
 }
+public int bytenToInt (char[] arr, int size){
+	int sum =0;
+	for(int i=0;i<size;i++){
+		int temp = arr[i] << (size-1-i);
+		sum |= arr[i] << (size-1-i);
+	}
+	return sum;
+}
+public char[] intToByten(int n,int size){
+	char[] arr = new char[size];
+	for(int i=size-1;i>=0;i--){
+		arr[i] = (char)(n&1);
+		n = n>>1;
+	}
+	return arr;
+}
 public byte[] reverseByte32(byte[] arr){
 	byte[] b = new byte[32];
 	for (int i = 0; i < arr.length; i++) {
@@ -49,17 +68,69 @@ public byte[] reverseByte32(byte[] arr){
 	}
 	return b;
 }
-public static void main(String[] args){
-	System.out.println(new ReverseBit().reverseBits(43261596 ));
-	byte[] arr = {0,0,0,0,0,0,0,0,
-			0,0,0,0,0,0,0,0,
-			0,0,0,0,0,0,0,0,
-			0,0,0,1,0,1,1,0};
+/**
+ * Given two binary strings, return their sum (also a binary string).
+For example,
+a = "11"
+b = "1"
+Return "100".
+ * @param a
+ * @param b
+ * @return
+ */
+/*public String addBinary(String a, String b){
+	byte[] test;
+	try {
+		test = a.getBytes("iso8859-1");
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	char[] arr = a.toCharArray();
+	char[] brr = b.toCharArray();
+	byte[] a_byte = new byte[32];
+	byte[] b_byte = new byte[32];
+	for(int i=arr.length-1;i>=0;i--){
+		a_byte[31-i] = (byte)arr[i];
+	}
+	for(int i=brr.length-1;i>=0;i--){
+		b_byte[31-i] = (byte)brr[i];
+	}
+	int na = byte32ToInt(a_byte);
+	int nb = byte32ToInt(b_byte);
+	int sum = na +nb;
+	byte[] result = intToByte32(sum);
+//	String s = result.toString();
+	return null;
 	
-	System.out.println(new ReverseBit().byte32ToInt(arr));	
+
+}*/
+public String addBinary(String a, String b) {
+    int c = 0;
+    StringBuilder sb = new StringBuilder();
+    for(int i = a.length() - 1, j = b.length() - 1; i >= 0 || j >= 0;){
+        if(i >= 0) c += a.charAt(i--) - '0';
+        if(j >= 0) c += b.charAt(j--) - '0';
+        sb.insert(0, (char)((c % 2) + '0'));
+        c /= 2;
+    }
+    if(c == 1) sb.insert(0, "1");
+    return sb.toString();
+}
+public static void main(String[] args){
+//	System.out.println(new ReverseBit().reverseBits(43261596 ));
+//	byte[] arr = {
+//			0,0,0,0,0,0,0,0,
+//			0,0,0,0,0,0,0,0,
+//			0,0,0,0,0,0,0,0,
+//			0,0,0,1,
+//			1,1,1,0};
+	
+//	System.out.println(new ReverseBit().byte4ToInt(arr));	
 //	System.out.println(5>>2);//1
 //	System.out.println(-5>>2);//1
 //	System.out.println(5>>2);//1
+	System.out.println(new ReverseBit().addBinary("11", "11"));
 }
 }
 
