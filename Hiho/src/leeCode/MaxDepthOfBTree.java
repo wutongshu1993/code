@@ -3,9 +3,12 @@ package leeCode;
 public class MaxDepthOfBTree {
 	static int  max =0;
 public class TreeNode{
-	int val;
-	TreeNode left;
-	TreeNode right;
+	public int val;
+	public TreeNode left;
+	public TreeNode right;
+	
+	
+
 	public TreeNode(int x) {
 		// TODO Auto-generated constructor stub
 		val = x;
