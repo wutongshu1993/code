@@ -19,7 +19,7 @@ public List<List<Integer>> subsets(int[] nums) {
     List<List<Integer>> result = new ArrayList<>();
 	Arrays.sort(nums);
 	int len = nums.length;
-	int max = 1<<len;
+	int max = 1<<len;//这个表示2^n
     for(int i=0;i<max;i++){
     	List<Integer> list = new ArrayList<>();
     	int index = 0;
@@ -88,11 +88,59 @@ public boolean hasList(List<List<Integer>> result, List<Integer> list){
 	};
 	return false;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public List<List<Integer>> subset2(int[] nums){
+	int len = nums.length;
+	int n = (int)Math.pow(2, len) - 1;//子集中一共有多少个元素
+	int i = n-1;
+	List<List<Integer>> ret = new ArrayList<>();
+	Arrays.sort(nums);//先排序
+	while(n >= 0){
+		int temp = n;//第n个子集
+		int index = len - 1;//子集中的序号
+		List<Integer> list = new ArrayList<>();
+		while(temp != 0){
+			int cur = temp & 1;//当前指向的元素是否加入到集合中
+			if(cur == 1){
+				list.add(0, nums[index]);
+			}
+			index --;
+			temp = temp >> 1;
+		}
+		ret.add(list);
+		n--;
+	}
+	return ret;
+}
+
 public static void main(String[] args){
-	int[] nums = {1,2,2};
-	int max = -5<<2;//第一个操作数乘以2的幂，指数的值是由第二个数给出的
-	new Subsets().subsetsWithDup(nums);
+//	int[] nums = {1,2,2};
+//	int max = -5<<2;//第一个操作数乘以2的幂，指数的值是由第二个数给出的
+//	new Subsets().subsetsWithDup(nums);
+//	
+//	System.out.println(max);
 	
-	System.out.println(max);
+	int[] nums = {1,2,3};
+	System.out.println(new Subsets().subset2(nums));
 }
 }

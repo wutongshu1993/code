@@ -117,10 +117,68 @@ public class WordSearch {
 		return false;
 	}
 	
+	
+	public boolean exist2(char[][] board, String word){
+		int rows = board.length;
+		int cols = board[0].length;
+		boolean[][] visited = new boolean[rows][cols];
+		for(int i = 0; i < rows; i++){
+			for(int j = 0; j < cols; j++){
+				if(dfs(board, word, visited, i, j)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public boolean dfs(char[][] board, String str, boolean[][] visited, int i, int j ){
+		int rows = board.length;
+		int cols = board[0].length;
+		if(i < rows && j < cols  && i>=0 && j >= 0 && !visited[i][j] && board[i][j] == str.charAt(0)){
+			visited[i][j] = true;
+			if(str.length() == 1 || dfs(board, str.substring(1), visited, i + 1, j) ){
+				return true;
+			}
+			else if(str.length() == 1 || dfs(board, str.substring(1), visited, i - 1, j)){
+				return true;
+			}
+			else if(str.length() == 1 || dfs(board, str.substring(1), visited, i, j + 1)){
+				return true;
+			}
+			else if(str.length() == 1 || dfs(board, str.substring(1), visited, i, j - 1)){
+				return true;
+			}
+			visited[i][j] = false;
+		}
+		return false;
+	}
+	
 	public static void main(String[] args){
 		char[][] board = {{'C','A','A'},
 						  {'A','A','A'},
 			              {'B','C','D'}};
-		System.out.println(new WordSearch().exist(board, "AAB"));
+		System.out.println(new WordSearch().exist2(board, "AAB"));
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }
