@@ -20,24 +20,33 @@ public static ListNode reverseList(ListNode head){/*tail 和 head竟然是指向的同一
 		}//跳出循环时
 		return half; 
 	}	
-*/  ListNode next = head.next;
-	head.next = null;
-	if (next != null) {
+	
+*/  if (head == null || head.next == null) {
+	System.out.println(head.val);
+	return head;
+}
+		ListNode next = head.next;
+		head.next = null;
 		ListNode root = reverseList(next);
 		next.next = head;
+		System.out.println(head.val);
 		return root;
-		
-	}
-	return head;
 
 	}
 public static void main(String[] args){
 	ListNode a = new ListNode(1);
 	ListNode b = new ListNode(2);
 	ListNode c = new ListNode(3);
+	ListNode d = new ListNode(4);
+//	a = b;
+////	b = c;
+//	a.val = 999;
+//	System.out.println(a.val);
+//	System.out.println(b.val);
 	a.next = b;
 	b.next = c;
-	c.next = null;
+	c.next = d;
+	d.next = null;
 	reverseList(a);
 	while(a.next != null)
 		System.out.println(a.val);
