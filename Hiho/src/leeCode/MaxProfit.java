@@ -81,10 +81,12 @@ public class MaxProfit {
 	    int cur_max = prices[len-1];
 	    int[] preProfit = new int[len];
 	    int[] postProfit = new int[len];
+	    //在第i天（包含）及之前进行第一次买卖，可以挣得的利息为preProfit[i]
 	    for(int i=1;i<len;i++){
 	    		cur_min = Math.min(prices[i], cur_min);
 	    		preProfit[i] = Math.max(prices[i]-cur_min, preProfit[i-1]);	    	
 	    }
+	    //在第i天及之后进行第二次买卖，可以挣得的利息为postProfit[i]
 	    
 	    for(int i=len-2;i>=0;i--){
 	    		cur_max = Math.max(prices[i], cur_max);
@@ -96,8 +98,35 @@ public class MaxProfit {
 	    	max = Math.max(preProfit[i]+postProfit[i], max);
 	    }
 		 return max;}
+	
+	/**
+	 * 可以最多进行K次买卖，求最大利润
+	 * @param k
+	 * @param prices
+	 * @return
+	 */
+public int maxProfitIV(int k, int[] prices) {
+    int hold = Integer.MIN_VALUE, release = 0;    
+	return 0;
+    }
 	public static void main(String[] args){
 		int[] prices = {1,30,20,100};
 		System.out.println(new MaxProfit().maxProfitIII(prices));
 	}
 }
+/**
+ *答案中的解法
+ * public class Solution {
+    public int maxProfit(int[] prices) {
+        int hold1 = Integer.MIN_VALUE, hold2 = Integer.MIN_VALUE;
+        int release1 = 0, release2 = 0;
+        for(int i:prices){                              // Assume we only have 0 money at first
+            release2 = Math.max(release2, hold2+i);     // The maximum if we've just sold 2nd stock so far.
+            hold2    = Math.max(hold2,    release1-i);  // The maximum if we've just buy  2nd stock so far.
+            release1 = Math.max(release1, hold1+i);     // The maximum if we've just sold 1nd stock so far.
+            hold1    = Math.max(hold1,    -i);          // The maximum if we've just buy  1st stock so far. 
+        }
+        return release2; ///Since release1 is initiated as 0, so release2 will always higher than release1.
+    }
+}
+ */

@@ -11,6 +11,11 @@ import sort.Merge;
  *
  */
 public class ThreeSum {
+	/**
+	 * 最笨的方法也就是三次循环呗，将满足条件的三个元素排序（这一步可以通过第一步就进行排序宠儿省略），然后再去重
+	 * @param nums
+	 * @return
+	 */
 public List<List<Integer>> threeSum(int[] nums) {
     List<List<Integer>> result = new ArrayList<>();
 //	List threeeSum = new ArrayList<>();
@@ -71,7 +76,9 @@ public boolean isDuplicate(List<Integer> list1, List<Integer> list2){
 	return true;
 }
 /**
- * 所谓的双指针，这两个指针一定要是在两边
+ * 所谓的双指针，这两个指针一定要是在两边。
+ * 首先对数组进行排序，然后设定三个指针，I,J,K分别指向首，尾，尾-1。计算sum = num[i]+num[j]+num[k]的和分三种情况讨论，小于、等于、大于0
+ * 这三种情况，每种情况都要用while排除相邻两个数相等的情况。
  * @param nums
  * @return
  */
@@ -117,7 +124,7 @@ while(j>1){
 		if (sum < 0) {
 			do {
 				i++;
-			} while (i<k&&nums[i] == nums[i-1] );
+			} while (i<k&&nums[i] == nums[i-1] );//去除重复的数字
 		}
 		else if(sum == 0){
 			result.add(Arrays.asList(nums[i],nums[k],nums[j]));
