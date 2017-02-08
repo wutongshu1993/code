@@ -104,6 +104,6 @@ public List<List<String>> partition2(String s) {
 
 public static void main(String[] args){
 	
-	List<List<String>> list = new PalindromePartitioning().partition3("aab");
+	List<List<String>> list = new PalindromePartitioning().partition3("google");
 }
 }
