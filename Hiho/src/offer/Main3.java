@@ -68,7 +68,7 @@ public static void getResult(int[] nums){
 			}
 		}
 	}
-	else {//数组中有重复的数字
+	else {//数组中有重复的数字,差最小的对数就是重复的数字的对数
 		
 		for(int key : map.keySet()){
 			int val = map.get(key); 

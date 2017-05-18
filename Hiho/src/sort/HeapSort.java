@@ -8,6 +8,7 @@ import util.ArrayUtils;
  */
 public class HeapSort {
 	/**
+	 * 通过比较当前节点和左右子节点的大小，
 	 * 将当前节点和它的子节点调整为大顶堆
 	 * 从index节点开始调整，再依次调整它的子节点
 	 * @param array 需要调整的数组
@@ -39,7 +40,7 @@ public static void buildMaxHeap(int[] array){
 		return;
 	}
 	int half = array.length  / 2 ;
-	for(int i=half;i>=0;i--){//从第一个非叶子节点开始向上调整，再依次调整各个非叶子节点（自下向上，自左向右调整）
+	for(int i=half;i>=0;i--){//从第一个非叶子节点开始向上调整，再依次调整各个非叶子节点（自下向上，自右向左调整）
 		maxHeap(array, array.length, i);
 	}
 }
