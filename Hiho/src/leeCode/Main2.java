@@ -25,7 +25,7 @@ public static void main(String[] args){
 		list.add(scanner.nextInt());
 	}
 	int[] nums = new int[list.size()];
-	list.toArray(nums);
+	//list.toArray(nums);
 	System.out.println(new Main2().find(nums));
 }
 }

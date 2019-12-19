@@ -1,12 +1,12 @@
 package leeCode;
 /**
- * Ñ°ÕÒ×îÐ¡×Ö·û×Ó´®µÄÎ»ÖÃKMP
+ * Ñ°ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ö·ï¿½ï¿½Ó´ï¿½ï¿½ï¿½Î»ï¿½ï¿½KMP
  * @author lh
  *
  */
 public class StrStr {
 	/**
-	 * ÕâÖÖ×î±¿×î±¿µÄ°ì·¨£¬ºÜÂý
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½î±¿ï¿½î±¿ï¿½Ä°ì·¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param haystack
 	 * @param needle
@@ -43,8 +43,8 @@ public int strStr(String haystack, String needle) {
 	return -1; 
     }
 /**
- * ´Ó×Ü´®µÄµÚi¸öÎ»ÖÃ¿ªÊ¼ÒÀ´ÎºÍ×Ö´®½øÐÐ±È½Ïneedle.charAt(j) != haystack.charAt(i + j)£¬²»µÈÓÚµÄ»°¾Íi++£¬·ñÔòj++
- * µ±j == neddle.length()ÕÒµ½£¬·ñÔòÃ»ÕÒµ½
+ * ï¿½ï¿½ï¿½Ü´ï¿½ï¿½Äµï¿½iï¿½ï¿½Î»ï¿½Ã¿ï¿½Ê¼ï¿½ï¿½ï¿½Îºï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ð±È½ï¿½needle.charAt(j) != haystack.charAt(i + j)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ»ï¿½ï¿½ï¿½i++ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½j++
+ * ï¿½ï¿½j == neddle.length()ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Òµï¿½
  * @param haystack
  * @param needle
  * @return
@@ -60,7 +60,7 @@ public int strStr3(String haystack, String needle) {
     		return -1;
     	}
     	if(needle.charAt(j) != haystack.charAt(i + j)){
-    		break;//Ìø³öÕâÒ»²ãÑ­»·
+    		break;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ñ­ï¿½ï¿½
     	}
     }
     }
@@ -77,7 +77,7 @@ public int strStrKMP(String haystack, String needle){
 }
 
 public int[] getNext(char[] c){
-	int
+	//int
 	return null;
 }
 public static void main(String[] args){
