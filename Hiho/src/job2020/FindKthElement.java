@@ -16,15 +16,18 @@ public class FindKthElement {
             }else if(args.length - mid > k){
                 return findKthSort(args, mid+1, high, k);
             }else if (args.length - mid < k){
-                return findKthSort(args, low, mid-1, k-args.length+mid);
+                return findKthSort(args, low, mid-1, k);
             }
         }
-        return 0;
+        return args[low];
     }
 
     public static void main(String[] args){
-        int[] arr = {3,2,1,5,6,4};
-        int kele = findKthSort(arr, 0, arr.length-1, 2);
+        //int[] arr = {3,2,1,5,6,4};
+//        int k = 2;
+        int[] arr = {7,6,5,4,3,2,1};
+        int k = 2;
+        int kele = findKthSort(arr, 0, arr.length-1, k);
         System.out.println(kele);
     }
 }
